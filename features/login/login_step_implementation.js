@@ -69,7 +69,7 @@ step("User clicks login button", async function() {
     }
 });
 
-step("User logout", async function() {
+step("User logout succesfully", async function() {
 	await LoginPageActions.clickProfileIcon();
 	await LoginPageActions.clickLogout();
 

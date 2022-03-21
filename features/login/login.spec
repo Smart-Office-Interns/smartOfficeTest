@@ -9,4 +9,5 @@
 * User should redirect to Home page
 
 ## Logout
-* User logout
+* User logout succesfully
+user redirect login page
