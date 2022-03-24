@@ -74,3 +74,14 @@ step("User logout succesfully", async function() {
 	await LoginPageActions.clickLogout();
 
 });
+
+step("The user logged in successfully", async function() {
+    try {
+        await LoginPageActions.typeUsername("svtest6@avctlab.net");
+        await LoginPageActions.clickButton('NEXT');
+        await LoginPageActions.typePassword('Kandy-1234');
+        await LoginPageActions.clickButton('LOGIN');
+     } catch (error) {
+         console.log(error);
+     }
+});
