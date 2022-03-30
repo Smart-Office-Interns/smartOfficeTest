@@ -18,7 +18,8 @@ const {
     into,
     textBox,
     evaluate,
-    openIncognitoWindow
+    openIncognitoWindow,
+    waitFor
 } = require('taiko');
 const assert = require("assert");
 const LoginPageActions = require('./login');
@@ -29,6 +30,7 @@ step("Open SmartOffice web application", async function () {
 });
 
 step("User should pass startapp screen with CIM user <arg0>", async function(arg0) {
+    waitFor(3000);
     try {
        await LoginPageActions.typeUsername(arg0);
        await LoginPageActions.clickButton('NEXT');
@@ -38,6 +40,7 @@ step("User should pass startapp screen with CIM user <arg0>", async function(arg
 });
 
 step("User should see typed CIM <arg0> user in username area in the login page", async function (arg0) {
+    waitFor(3000);
     try {
         await LoginPageActions.getUserNameValueAndCheck(arg0);
     } catch (error) {
@@ -45,6 +48,7 @@ step("User should see typed CIM <arg0> user in username area in the login page",
     }
 });
 step("User should redirect to Home page", async function () {
+    waitFor(3000);
     try {
         await LoginPageActions.isRedirectedHomePage();
     } catch (error) {
@@ -54,6 +58,7 @@ step("User should redirect to Home page", async function () {
 
 
 step("User types paswword <arg0>", async function(arg0) {
+    waitFor(3000);
     try {
         await LoginPageActions.typePassword(arg0);
     } catch (error) {
@@ -62,6 +67,7 @@ step("User types paswword <arg0>", async function(arg0) {
 });
 
 step("User clicks login button", async function() {
+    waitFor(3000);
     try {
         await LoginPageActions.clickButton('LOGIN');
     } catch (error) {
@@ -73,4 +79,15 @@ step("User logout succesfully", async function() {
 	await LoginPageActions.clickProfileIcon();
 	await LoginPageActions.clickLogout();
 
+});
+
+step("The user logged in successfully", async function() {
+    try {
+        await LoginPageActions.typeUsername("svtest7@avctlab.net");
+        await LoginPageActions.clickButton('NEXT');
+        await LoginPageActions.typePassword('Kandy-1234');
+        await LoginPageActions.clickButton('LOGIN');
+     } catch (error) {
+         console.log(error);
+     }
 });
