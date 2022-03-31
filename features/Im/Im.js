@@ -26,52 +26,53 @@ const assert = require("assert");
 
 const MessagingActions = function() {
     async function clickFavoritesIcon() {
+        await waitFor(3000);
         try {
             await click($(".icon-favorites"));
-            await waitFor(3000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickContact() {
+        await waitFor(3000);
         try { 
             const contactName = "Svtest";
             await click(contactName);
-            await waitFor(3000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickContactProfileChat() {
+        await waitFor(3000);
         try {
             await click($('#contact-profile-chat')); 
-            await waitFor(5000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickDirectoryIcon() {
+        await waitFor(3000); 
         try {
             await click($('.icon-nav_contacts'));
-            await waitFor(3000); 
         } catch (error) {
             console.error(error);
         }
     }
 
     async function searchForContact(contact) {
+        await waitFor(3000);
         try {
             await write(contact, into(textBox({ id: 'contact-search-input' })));
-            await waitFor(3000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickSearchedContact() {
+        await waitFor(3000);
         try {
             const searchedName = "Test5, SV";
             await click(searchedName);
@@ -81,34 +82,35 @@ const MessagingActions = function() {
     }
 
     async function clickChatIcon() {
+        await waitFor(3000);
         try {
             await click($(".icon-nav_inbox"));
-            await waitFor(3000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickMessages() {
+        await waitFor(3000); 
         try {
             const imMessage = await listItem({id:'im-message-0'});
             await click(imMessage);
-            await waitFor(3000); 
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickHistoryIcon() {
+        await waitFor(3000);
         try {
             await click($(".icon-nav_history"));
-            await waitFor(3000);
         } catch (error) {
             console.error(error);
         }
     }
 
     async function clickLatest() {
+        await waitFor(3000);
         try {
         const latest = "Message Sended From Chat";
         await click(latest);
@@ -118,6 +120,7 @@ const MessagingActions = function() {
     }
 
     async function sendingMessage(message) {
+        await waitFor(3000);
         try {
             await write(message,into(textBox({ id : "sendMessage"})));
             await press('Enter')
@@ -150,5 +153,4 @@ const MessagingActions = function() {
         clickLatest:clickLatest
     }
 }()
-
 module.exports = MessagingActions;
