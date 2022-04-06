@@ -51,7 +51,6 @@ const LoginPageActions = function() {
     }
 
     async function isRedirectedHomePage() {
-        await waitFor(3000);
         try {
             assert.ok(await textBox('Contact').exists(0, 0));
         } catch (error) {

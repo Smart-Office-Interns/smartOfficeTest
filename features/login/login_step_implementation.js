@@ -26,7 +26,6 @@ const LoginPageActions = require('./login');
 step("Open SmartOffice web application", async function() {
     await openTab({ name: 'genband' });
     await goto("https://sr1.genband.com/smartOffice-manualsv/debug.html", { waitForEvents: ['loadEventFired'] });
-    // await openIncognitoWindow('https://sr1.genband.com/smartOffice-manualsv/debug.html', { name: 'windowName' });
 });
 step("User should pass startapp screen with CIM user <arg0>,<arg1>,<arg2>", async function(arg0, arg1, arg2) {
     try {
@@ -40,8 +39,6 @@ step("User should pass startapp screen with CIM user <arg0>,<arg1>,<arg2>", asyn
         console.log(error);
     }
 });
-
-
 step("User should pass startapp screen with CIM user <username>", async function(username) {
     try {
         await LoginPageActions.typeElement(username);
@@ -65,8 +62,6 @@ step("User should redirect to Home page", async function() {
         console.log(error)
     }
 });
-
-
 step("User types paswword <password>", async function(password) {
     try {
         await LoginPageActions.typeElement(password);
@@ -74,7 +69,6 @@ step("User types paswword <password>", async function(password) {
         console.log(error)
     }
 });
-
 step("User clicks login button", async function() {
     try {
         await LoginPageActions.clickButton('LOGIN');
@@ -82,7 +76,6 @@ step("User clicks login button", async function() {
         console.log(error)
     }
 });
-
 step("User logout succesfully", async function() {
     await LoginPageActions.clickProfileIcon();
     await LoginPageActions.clickLogout();

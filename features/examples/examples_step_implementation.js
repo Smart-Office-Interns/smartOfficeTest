@@ -25,12 +25,14 @@ const headless = process.env.headless_chrome.toLowerCase() === 'true';
 beforeSuite(async () => {
     await openBrowser({
         headless: headless,
-         args: ['--disable-popup-blocking','--disable-gpu',
+         args: ['--disable-gpu',
       '--disable-dev-shm-usage',
       '--disable-setuid-sandbox',
       '--no-first-run',
+    //   '--disable-popup-blocking',
       '--no-sandbox',
-      '--no-zygote']
+      '--no-zygote',
+    '--block-new-web-contents']
     })
 });
 
