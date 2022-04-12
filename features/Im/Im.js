@@ -70,7 +70,7 @@ const MessagingActions = function() {
             console.error(error);
         }
     }
-
+    
     async function clickSearchedContact() {
         await waitFor(3000);
         try {
