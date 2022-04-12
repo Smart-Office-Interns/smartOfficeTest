@@ -29,7 +29,7 @@ beforeSuite(async () => {
       '--disable-dev-shm-usage',
       '--disable-setuid-sandbox',
       '--no-first-run',
-    //   '--disable-popup-blocking',
+      '--disable-popup-blocking',
       '--no-sandbox',
       '--no-zygote',
     '--block-new-web-contents']
