@@ -63,9 +63,9 @@ step("User search for <arg1> contact",async function(arg1) {
     }
 });
 
-step("User clicks searched contact",async function(){
+step("User clicks <arg2> contact",async function(arg2){
     try {
-        await MessagingActions.clickSearchedContact();
+        await MessagingActions.clickSearchedContact(arg2);
     } catch (error) {
         console.log(error)
     }
