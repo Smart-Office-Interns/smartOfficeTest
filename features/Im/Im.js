@@ -74,7 +74,6 @@ const MessagingActions = function() {
     async function clickSearchedContact(searchedName) {
         await waitFor(3000);
         try {
-            //const searchedName = "Test5, SV";
             await click(searchedName);
         } catch (error) {
             console.error(error);
