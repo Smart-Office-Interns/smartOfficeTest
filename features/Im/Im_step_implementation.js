@@ -63,9 +63,9 @@ step("User search for <arg1> contact",async function(arg1) {
     }
 });
 
-step("User clicks searched contact",async function(){
+step("User clicks <arg2> contact",async function(arg2){
     try {
-        await MessagingActions.clickSearchedContact();
+        await MessagingActions.clickSearchedContact(arg2);
     } catch (error) {
         console.log(error)
     }
@@ -113,6 +113,53 @@ step("User send <arg0> message to another user",async function(arg0) {
 
 step("User close current tab",async function() {
     try {
+        await MessagingActions.closingTab();
+    }catch (error) {
+        console.log(error);
+    }
+});
+
+step("Messaging From Favorites Single Scenerio",async function() {
+    try {
+        await MessagingActions.clickFavoritesIcon();
+        await MessagingActions.clickContact();
+        await MessagingActions.clickContactProfileChat();
+        await MessagingActions.sendingMessage("Message Sended From Favorites");
+        await MessagingActions.closingTab();
+    }catch (error) {
+        console.log(error);
+    }
+});
+
+step("Messaging From Directory Single Scenerio",async function() {
+    try {
+        await MessagingActions.clickDirectoryIcon();
+        await MessagingActions.searchForContact();
+        await MessagingActions.clickSearchedContact();
+        await MessagingActions.clickContactProfileChat();
+        await MessagingActions.sendingMessage("Message Sended From Directory");
+        await MessagingActions.closingTab();
+    }catch (error) {
+        console.log(error);
+    }
+});
+
+step("Messaging From Chat Single Scenerio",async function() {
+    try {
+        await MessagingActions.clickChatIcon();
+        await MessagingActions.clickMessages();
+        await MessagingActions.sendingMessage("Message Sended From Chat");
+        await MessagingActions.closingTab();
+    }catch (error) {
+        console.log(error);
+    }
+});
+
+step("Messaging From History Single Scenerio",async function() {
+    try {
+        await MessagingActions.clickHistoryIcon();
+        await MessagingActions.clickLatest();
+        await MessagingActions.sendingMessage("Message Sended From History");
         await MessagingActions.closingTab();
     }catch (error) {
         console.log(error);

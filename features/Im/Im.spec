@@ -14,7 +14,7 @@
 ## Messaging From Directory
 * User clicks directory icon
 * User search for "Test5" contact
-* User clicks searched contact
+* User clicks "Test5, SV" contact
 * User clicks message icon
 * User send "Message Sended From Directory" message to another user
 * User close current tab

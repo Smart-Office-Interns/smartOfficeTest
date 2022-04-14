@@ -70,11 +70,10 @@ const MessagingActions = function() {
             console.error(error);
         }
     }
-
-    async function clickSearchedContact() {
+    
+    async function clickSearchedContact(searchedName) {
         await waitFor(3000);
         try {
-            const searchedName = "Test5, SV";
             await click(searchedName);
         } catch (error) {
             console.error(error);
