@@ -123,3 +123,10 @@ step("User A click history icon", async function() {
     }
 });
 
+step("User A click favorites icon", async function() {
+    try {
+        await callPageActions.clickFavoritesIcon();
+    } catch (error) {
+        console.log(error)
+    }
+});

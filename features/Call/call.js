@@ -34,7 +34,7 @@ const assert = require("assert");
 const callPageActions = function() {
     // User A Actions
     async function clickAvatarIcon(username) {
-        await waitFor(2000);
+        await waitFor(4000);
         try {
             await click(username);
         } catch (error) {
@@ -43,7 +43,7 @@ const callPageActions = function() {
     }
 
     async function clickAudioIcon() {
-        await waitFor(2000);
+        await waitFor(3000);
         try {
             await click($('#contact-profile-audio-call'));
         } catch (error) {
@@ -52,7 +52,7 @@ const callPageActions = function() {
     }
 
     async function clickVideoIcon() {
-        await waitFor(2000);
+        await waitFor(4000);
         try {
             await click($('#contact-profile-video-call'));
         } catch (error) {
@@ -69,9 +69,17 @@ const callPageActions = function() {
             console.error(error);
         }
     }
-
+    async function clickFavoritesIcon() {
+        await waitFor(4000);
+        try {
+            const historyIcon = listItem({ id: 'sidebar-favorites' });
+            await click(historyIcon);
+        } catch (error) {
+            console.error(error);
+        }
+    }
     async function clickHistoryIcon() {
-        await waitFor(3000);
+        await waitFor(4000);
         try {
             const historyIcon = listItem({ id: 'sidebar-history' });
             await click(historyIcon);
@@ -168,6 +176,7 @@ const callPageActions = function() {
 
     return {
         clickAvatarIcon: clickAvatarIcon,
+        clickFavoritesIcon,clickFavoritesIcon,
         clickAudioIcon: clickAudioIcon,
         clickVideoIcon:clickVideoIcon,
         overridePermission: overridePermission,
